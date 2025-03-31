@@ -21,6 +21,14 @@ public class FrontController{
 	// 초기화
 	private void init() {
 		map.put("/reservation", new ReservationController());
+		System.out.println("FrontController init");
+		map.put("/rental", new RentalController());
+		map.put("/book", new BookController());
+<<<<<<< HEAD
+
+=======
+		// 추가
+>>>>>>> 89231b7d0eac1cab929fff57835a1b3c14a62ba7
 	}
 	
 	// View로 부터 전달하는 요청 전달
