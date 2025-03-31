@@ -17,7 +17,9 @@ public class Viewer {
 		}
 
 		public void MainMenu() {
-
+			Map<String,Object> params;
+			Map<String,Object> response;
+			
 			while (true) {
 				System.out.println("--------------------------");
 				System.out.println("MAIN");
@@ -49,7 +51,7 @@ public class Viewer {
 					String isrv = sc.next();
 
 					//View에서 요청정보 담기
-					Map<String,Object> params = new HashMap();
+					params = new HashMap();
 					params.put("endPoint", "/book");//endPoint
 					params.put("serviceNo", 1);	//ServiceNo
 					//도서등록 - 인자전달
@@ -62,7 +64,7 @@ public class Viewer {
 
 					
 					//요청하기
-					Map<String,Object> response = controller.excute(params);
+					response = controller.execute(params);
 					
 					//응답확인
 					
@@ -86,7 +88,7 @@ public class Viewer {
 					String memberId = sc.next();
 					
 					// 요청처리
-					Map<String,Object> params = new HashMap();
+					params = new HashMap();
 					params.put("endPoint", "/rental");
 					params.put("serviceNo", 3);
 					
@@ -95,7 +97,7 @@ public class Viewer {
 					params.put("memberId",memberId);
 					
 					// frontController로 params 던지기
-					Map<String,Object> response = controller.excute(params);
+					response = controller.execute(params);
 					
 					for(String key : response.keySet())
 						System.out.println(key + " : " + response.get(key));
@@ -107,15 +109,15 @@ public class Viewer {
 					System.out.println("예약 도서 삭제"); //
 					System.out.println("--------------------------");
 					System.out.print("Rental_id: ");
-					int rentalId = Integer.parseInt(sc.next());
+					int rentalid = Integer.parseInt(sc.next());
 					
 					//요청처리
-					Map<String,Object> params = new HashMap<>();
+					params = new HashMap<>();
 					params.put("endpoint", "/reservation");
 					params.put("serviceNo", 4);
-					params.put("RENTAL_ID",  rentalId);
+					params.put("RENTAL_ID",  rentalid);
 					
-					Map<String,Object> response = controller.execute(params);
+					response = controller.execute(params);
 					for(String key : response.keySet()) {
 						System.out.println(key + " : " + response.get(key));;
 					}
