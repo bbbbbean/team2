@@ -3,36 +3,33 @@ package Controller;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FrontController {
-
-	private Map<String,Controller> map = new HashMap();
+public class FrontController{
+	private Map<String,ReservedController> map = new HashMap<>();
 	
-	// 싱글톤
+	//싱글톤
 	private static FrontController instance;
-	private FrontController() {
-		System.out.println("FrontController init");
+	public  FrontController() {
+		System.out.println("[FC] FrontController init...");
 		init();
 	}
 	public static FrontController getInstance() {
-		if(instance == null)
+		if (instance == null) {
 			instance = new FrontController();
+		}
 		return instance;
 	}
-	
 	// 초기화
 	private void init() {
-		System.out.println("FrontController init");
-		map.put("/rental", new RentalController());
-		// 추가
+		map.put("/reservation", new ReservationController());
 	}
 	
-	public Map<String, Object> excute (Map<String, Object> params){
-		System.out.println("excute invoke");
-		String endPoint = (String)params.get("endPoint");
-		Controller controller = map.get(endPoint);
+	// View로 부터 전달하는 요청 전달
+	public Map<String,Object> execute(Map<String,Object>params){
+		System.out.println("[FC] execute invoke...");
+		String endPoint = (String)params.get("endpoint");
+		ReservedController controller = map.get(endPoint);
 		return controller.execute(params);
+		
 	}
+	
 }
-
-
-
