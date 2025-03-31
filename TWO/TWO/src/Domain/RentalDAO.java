@@ -38,10 +38,11 @@ public class RentalDAO {
 	}
 	public int update(RentalDTO rentalDto) throws Exception {
 		try {
-			pstmt = conn.prepareStatement("update Rental_tbl set rental_id=?,Book_code=?,Member_id=?");
+			pstmt = conn.prepareStatement("update Rental_tbl set rental_id=?,Book_code=?,Member_id=? where rental_id=?");
 			pstmt.setString(1, rentalDto.getRentalId());
 			pstmt.setString(2, rentalDto.getBookCode());
 			pstmt.setString(3, rentalDto.getMemberId());
+			pstmt.setString(4, rentalDto.getRentalId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
