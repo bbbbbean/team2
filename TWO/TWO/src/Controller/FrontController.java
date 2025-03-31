@@ -23,6 +23,7 @@ public class FrontController {
 	private void init() {
 		System.out.println("FrontController init");
 		map.put("/rental", new RentalController());
+		map.put("/book", new BookController());
 		// 추가
 	}
 	

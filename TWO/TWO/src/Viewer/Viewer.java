@@ -32,6 +32,44 @@ public class Viewer {
 				switch (num) {
 				case 1:
 					// 각부분 추가
+					System.out.println("--------------------------");
+					System.out.println("도서추가하기");
+					System.out.println("--------------------------");
+					System.out.print("도서코드 : ");
+					String code = sc.next();
+					System.out.print("분류번호 : ");
+					String ClfID = sc.next();
+					System.out.print("저자 : ");
+					String author = sc.next();
+					System.out.print("도서이름 : ");
+					String name = sc.next();
+					System.out.print("출판사 : ");
+					String psher = sc.next();
+					System.out.print("예약상태 : ");
+					String isrv = sc.next();
+
+					//View에서 요청정보 담기
+					Map<String,Object> params = new HashMap();
+					params.put("endPoint", "/book");//endPoint
+					params.put("serviceNo", 1);	//ServiceNo
+					//도서등록 - 인자전달
+					params.put("bookCode", code);
+					params.put("classificationId", ClfID);
+					params.put("bookAuthor", author);
+					params.put("bookName", name);
+					params.put("publisher", psher);
+					params.put("isreserve", isrv);
+
+					
+					//요청하기
+					Map<String,Object> response = controller.excute(params);
+					
+					//응답확인
+					
+					for(String key : response.keySet()) {
+						System.out.println(key + " : " + response.get(key));
+						
+					}
 					break;
 				case 2:
 					// 각부분 추가
