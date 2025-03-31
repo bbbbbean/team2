@@ -52,7 +52,7 @@ public class Viewer {
 
 					//View에서 요청정보 담기
 					params = new HashMap();
-					params.put("endPoint", "/book");//endPoint
+					params.put("endpoint", "/book");//endPoint
 					params.put("serviceNo", 1);	//ServiceNo
 					//도서등록 - 인자전달
 					params.put("bookCode", code);
@@ -89,7 +89,7 @@ public class Viewer {
 					
 					// 요청처리
 					params = new HashMap();
-					params.put("endPoint", "/rental");
+					params.put("endpoint", "/rental");
 					params.put("serviceNo", 3);
 					
 					params.put("rentalId",rentalId);
