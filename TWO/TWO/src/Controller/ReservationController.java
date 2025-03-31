@@ -6,7 +6,7 @@ import java.util.Map;
 import Domain.ReservationDto;
 import Service.ReservationService;
 
-public class ReservationController implements ReservedController {
+public class ReservationController implements Controller {
 	Map<String,Object> response = new HashMap<>();
 	private ReservationService reserservice;
 	public ReservationController() {

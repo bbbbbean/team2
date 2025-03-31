@@ -1,9 +1,9 @@
 package Main;
 
-import Viewer.ReservedViewer;
+import Viewer.Viewer;
 
 public class Main {
-	public static void main(String[] args) {
-		new ReservedViewer().MainMenu();
+	public static void main(String[] args) throws Exception {
+		new Viewer().MainMenu();
 	}
 }
