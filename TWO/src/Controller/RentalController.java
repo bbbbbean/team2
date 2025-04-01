@@ -41,9 +41,9 @@ public class RentalController implements Controller{
 				break;
 			case 3:	// U : 대여 정보 수정
 				System.out.println("대여 정보 수정");
-				String rentalId = params.get("rentalId")!=null?(String)params.get("rentalId"):null;
-				String bookCode = params.get("bookCode")!=null?(String)params.get("bookCode"):null;
-				String memberId = params.get("memberId")!=null?(String)params.get("memberId"):null;
+				int rentalId = params.get("rentalId")!=null?(Integer)params.get("rentalId"):null;
+				int bookCode = params.get("bookCode")!=null?(Integer)params.get("bookCode"):null;
+				int memberId = params.get("memberId")!=null?(Integer)params.get("memberId"):null;
 				RentalDTO rentalDto = new RentalDTO(rentalId,bookCode,memberId);
 				
 				// 유효성체크
@@ -77,19 +77,9 @@ public class RentalController implements Controller{
 	}
 	// 유효성 검사
 	private boolean isValid(RentalDTO rentalDto) {
-		if(!rentalDto.getRentalId().matches("^[0-9]*$")) {
-			response.put("error", "숫자만 입력 가능합니다.");
-			System.out.println("숫자만 입력 가능합니다.");
-			return false;
-		}
-		if(!rentalDto.getMemberId().matches("^[0-9]*$")) {
-			response.put("error", "숫자만 입력 가능합니다.");
-			System.out.println("숫자만 입력 가능합니다.");
-			return false;
-		}
-		if(!rentalDto.getBookCode().matches("^[0-9]*$")) {
-			response.put("error", "숫자만 입력 가능합니다.");
-			System.out.println("숫자만 입력 가능합니다.");
+		if(rentalDto.getRentalId()==null) {
+			response.put("error", "칸을 비울 수 없습니다.");
+			System.out.println("칸을 비울 수 없습니다");
 			return false;
 		}
 		return true;

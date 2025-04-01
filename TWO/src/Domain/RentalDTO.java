@@ -1,14 +1,14 @@
 package Domain;
 
 public class RentalDTO {
-	String rentalId;
-	String bookCode;
-	String memberId;
+	int rentalId;
+	int bookCode;
+	int memberId;
 	
 	// 생성자
 	public RentalDTO() {}
 
-	public RentalDTO(String rentalId, String bookCode, String memberId) {
+	public RentalDTO(int rentalId, int bookCode, int memberId) {
 		super();
 		this.rentalId = rentalId;
 		this.bookCode = bookCode;
@@ -16,27 +16,27 @@ public class RentalDTO {
 	}
 
 	// getter and setter
-	public String getRentalId() {
+	public Integer getRentalId() {
 		return rentalId;
 	}
 
-	public void setRentalId(String rentalId) {
+	public void setRentalId(int rentalId) {
 		this.rentalId = rentalId;
 	}
 
-	public String getBookCode() {
+	public Integer getBookCode() {
 		return bookCode;
 	}
 
-	public void setBookCode(String bookCode) {
+	public void setBookCode(int bookCode) {
 		this.bookCode = bookCode;
 	}
 
-	public String getMemberId() {
+	public Integer getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(String memberId) {
+	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
 
