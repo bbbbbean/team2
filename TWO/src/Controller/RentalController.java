@@ -41,9 +41,10 @@ public class RentalController implements Controller{
 				break;
 			case 3:	// U : 대여 정보 수정
 				System.out.println("대여 정보 수정");
-				int rentalId = params.get("rentalId")!=null?(Integer)params.get("rentalId"):null;
-				int bookCode = params.get("bookCode")!=null?(Integer)params.get("bookCode"):null;
-				int memberId = params.get("memberId")!=null?(Integer)params.get("memberId"):null;
+				Integer rentalId = params.get("rentalId")!=null?Integer.parseInt((String)params.get("rentalId")):null;
+				Integer bookCode = params.get("bookCode")!=null?Integer.parseInt((String)params.get("bookCode")):null;
+				Integer memberId = params.get("memberId")!=null?Integer.parseInt((String)params.get("memberId")):null;
+				
 				RentalDTO rentalDto = new RentalDTO(rentalId,bookCode,memberId);
 				
 				// 유효성체크
@@ -77,7 +78,7 @@ public class RentalController implements Controller{
 	}
 	// 유효성 검사
 	private boolean isValid(RentalDTO rentalDto) {
-		if(rentalDto.getRentalId()==null) {
+		if(Integer.valueOf(rentalDto.getRentalId())==null) {
 			response.put("error", "칸을 비울 수 없습니다.");
 			System.out.println("칸을 비울 수 없습니다");
 			return false;

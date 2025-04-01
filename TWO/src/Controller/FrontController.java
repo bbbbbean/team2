@@ -24,6 +24,7 @@ public class FrontController{
 		map.put("/reservation", new ReservationController());
 		map.put("/rental", new RentalController());
 		map.put("/book", new BookController());
+		map.put("/user", new UserController());
 
 		// 추가
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import Controller.FrontController1;
+import Controller.FrontController;
 import Domain.UserDto;
 
 public class Viewer {
@@ -13,9 +13,9 @@ public class Viewer {
 		private Scanner sc = new Scanner(System.in);
 
 		// 싱글톤 패턴의 FrontController 연결
-		private FrontController1 controller;
+		private FrontController controller;
 		public Viewer() throws Exception {
-			controller = FrontController1.getInstance();
+			controller = FrontController.getInstance();
 		}
 
 		public void MainMenu() {
@@ -99,6 +99,7 @@ public class Viewer {
 					params.put("bookCode",bookCode);
 					params.put("memberId",memberId);
 					
+					
 					// frontController로 params 던지기
 					response = controller.execute(params);
 					
@@ -168,7 +169,7 @@ public class Viewer {
 
         // 요청 처리
         Map<String, Object> params = new HashMap<>();
-        params.put("endPoint", "/user");
+        params.put("endpoint", "/user");
         params.put("serviceNo", 1); // 단건 조회 서비스 번호
         params.put("member_id", id);
 
@@ -188,7 +189,7 @@ public class Viewer {
 
         // 요청 처리
         Map<String, Object> params = new HashMap<>();
-        params.put("endPoint", "/user");
+        params.put("endpoint", "/user");
         params.put("serviceNo", 2); // 전체 조회 서비스 번호
 
         Map<String, Object> response = controller.execute(params);
